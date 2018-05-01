@@ -12,39 +12,31 @@ import './App.css';
 //     )
 //   }
 // }
-class CalculatorRegisterDisplay extends React.Component {
-  render() {
-    const {value, className} = this.props;
-    return (
-      <span className={`${className}`}>
-        {value.map(val => {
+function CalculatorRegisterDisplay (props) {
+  return (
+    
+     (
+      <span className={`${props.className}`}>
+        {props.value.map(val => {
           return val + ' ';
         })}
       </span>
     )
-  }
+  )
 }
 
-class CalculatorDisplay extends React.Component {
-  render() {
-    const {value, className} = this.props;
-    
-    return(
-    <span className={`${className}`}>
-      {value}
+function CalculatorDisplay (props) {
+  return (
+    <span className={`${props.className}`}>
+      {props.value}
     </span>
-      
-    )
-  }
+  )
 }
 
-class CalculatorKey extends React.Component {
-  render () {
-    const {onClick, className, ...props} = this.props;
-    return (
-      <button className={`calculator-key ${className}`} onClick={onClick} {...props}/>
-    )
-  }
+function CalculatorKey (props) {
+  return (
+    <button className={`calculator-key ${props.className}`} onClick={props.onClick} {...props}/>
+  )
 }
 
 class Calculator extends React.Component {
@@ -117,6 +109,11 @@ class Calculator extends React.Component {
           <CalculatorDisplay value={currentValue} className="input-display" />
         </div>
         <div className="row">
+          <CalculatorKey className="btn btn-dark" onClick={() => this.executeOperation('+')}>+</CalculatorKey>
+          <CalculatorKey className="btn btn-dark" onClick={() => this.executeOperation('-')}>-</CalculatorKey>
+          <CalculatorKey className="btn btn-dark"onClick={() => this.clearDisplay()}>AC</CalculatorKey>
+        </div>
+        <div className="row">
           <CalculatorKey className="btn btn-info" onClick={() => this.updateDisplay('7')}>7</CalculatorKey>
           <CalculatorKey className="btn btn-info" onClick={() => this.updateDisplay('8')}>8</CalculatorKey>
           <CalculatorKey className="btn btn-info" onClick={() => this.updateDisplay('9')}>9</CalculatorKey>
@@ -133,11 +130,6 @@ class Calculator extends React.Component {
         </div>
         <div className="row">
           <CalculatorKey className="btn btn-info zero" onClick={() => this.updateDisplay('0')}>0</CalculatorKey>
-        </div>
-        <div className="row">
-          <CalculatorKey className="btn btn-dark" onClick={() => this.executeOperation('+')}>+</CalculatorKey>
-          <CalculatorKey className="btn btn-dark" onClick={() => this.executeOperation('-')}>-</CalculatorKey>
-          <CalculatorKey className="btn btn-dark"onClick={() => this.clearDisplay()}>AC</CalculatorKey>
         </div>
         <div className="row">
           <CalculatorKey className="btn btn-dark zero"onClick={() => this.registerValue()}>enter</CalculatorKey>
