@@ -137,7 +137,10 @@ class Calculator extends React.Component {
         <div className="row">
           <CalculatorKey className="btn btn-dark" onClick={() => this.executeOperation('+')}>+</CalculatorKey>
           <CalculatorKey className="btn btn-dark" onClick={() => this.executeOperation('-')}>-</CalculatorKey>
-          <CalculatorKey className="btn btn-dark"onClick={() => this.registerValue()}>enter</CalculatorKey>
+          <CalculatorKey className="btn btn-dark"onClick={() => this.clearDisplay()}>AC</CalculatorKey>
+        </div>
+        <div className="row">
+          <CalculatorKey className="btn btn-dark zero"onClick={() => this.registerValue()}>enter</CalculatorKey>
         </div>
       </div>
     );
