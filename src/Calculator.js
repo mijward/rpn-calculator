@@ -64,7 +64,7 @@ class Calculator extends React.Component {
   //state changer methods
   updateDisplay (digit) {
     this.setState(prevState =>({
-      currentValue: prevState.currentValue + digit,
+      currentValue: prevState.currentValue === '0' ? digit : prevState.currentValue + digit,
     }))
   }
   
@@ -73,7 +73,7 @@ class Calculator extends React.Component {
     expression.push(currentValue);
     this.setState({
       expression,
-      currentValue: ''
+      currentValue: '0'
      })
   }
 
