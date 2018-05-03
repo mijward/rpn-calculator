@@ -46,11 +46,6 @@ class Calculator extends React.Component {
       expression: [],
       currentValue: '0',
     }
-    
-    this.registerValue = this.registerValue.bind(this);
-    this.executeOperation = this.executeOperation.bind(this);
-    this.clearDisplay = this.clearDisplay.bind(this);
-    this.updateDisplay = this.updateDisplay.bind(this);
   }
   
   //state changer methods
